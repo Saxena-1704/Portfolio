@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Portfolio</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Use the Inter font family defined in the Google Fonts link */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* A light gray background */
+        }
+        /* Style for the active navigation link */
+        .nav-link.active {
+            color: #4f46e5; /* Indigo color for active link */
+            font-weight: 500;
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4f46e5;
+        }
+        /* A simple fade-in animation for page sections */
+        .page-section {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- =========== HEADER & NAVIGATION =========== -->
+    <!-- This header will stay at the top of all pages. -->
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- EDIT HERE: Your Name or Logo -->
+            <a href="#home" class="text-2xl font-bold text-indigo-600 page-switcher">Arannav Saxena</a>
+
+            <!-- Navigation Links -->
+            <!-- The JavaScript will use these links to switch between content sections. -->
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors page-switcher active">Home</a></li>
+                <li><a href="#portfolio" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors page-switcher">Portfolio</a></li>
+                <li><a href="#blog" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors page-switcher">Blog</a></li>
+                <li><a href="#contact" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors page-switcher">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- =========== MAIN CONTENT =========== -->
+    <!-- This is where the content for your "pages" will go. -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- =========== HOME PAGE SECTION =========== -->
+        <!-- This section is visible by default. -->
+        <section id="home" class="page-section">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <!-- Profile Image -->
+                <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
+                    <!-- EDIT HERE: Change the 'src' to your profile picture URL. You can use a placeholder for now. -->
+                    <img src="images/me.jpg" alt="Your Name" class="rounded-full w-full h-full object-cover shadow-lg">
+                </div>
+                <!-- Introduction Text -->
+                <div>
+                    <!-- EDIT HERE: Your professional title -->
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Aspiring AI & ML Engineer</h1>
+                    <!-- EDIT HERE: A short bio about yourself -->
+                    <p class="mt-4 text-lg text-gray-600">
+                        Hi, I’m Arannav Saxena,
+I’m a B.Tech student in Computer Science with a strong passion for Machine Learning and Artificial Intelligence. I’m constantly learning, experimenting, and exploring new concepts, with the goal of applying AI to solve real-world problems
+                    </p>
+                    <div class="mt-8 flex gap-4">
+                        <a href="#portfolio" class="bg-indigo-600 text-white font-medium py-2 px-6 rounded-lg hover:bg-indigo-700 transition-colors page-switcher">View My Work</a>
+                        <a href="#contact" class="bg-gray-200 text-gray-800 font-medium py-2 px-6 rounded-lg hover:bg-gray-300 transition-colors page-switcher">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== PORTFOLIO PAGE SECTION =========== -->
+        <!-- This section is hidden by default. -->
+        <section id="portfolio" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">My Portfolio</h2>
+                <p class="text-lg text-gray-600 mt-2">A selection of my projects. Feel free to explore!</p>
+            </div>
+            
+            <!-- Portfolio Items Grid -->
+            <!-- Use this grid to add your projects. -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- === PORTFOLIO ITEM 1 === -->
+                <!-- EDIT HERE: Copy and paste this whole 'div' block to add a new project. -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <!-- Project Image: Use a 16:9 aspect ratio image (e.g., 1280x720) -->
+                    <img src="images/Multi agent AI system image.jpg" alt="Blog Diagram"" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <!-- Project Title -->
+                        <h3 class="text-xl font-bold mb-2">Multi Agent AI system</h3>
+                        <!-- Project Description -->
+                        <p class="text-gray-600 mb-4">It is a system which is built using langchain. It consists of multiple agents like the classifier agent, the pdf agent, the email agent and the json agent.</p>
+                        <!-- Project Links -->
+                        <div class="flex gap-4">
+                            <a href="https://drive.google.com/file/d/1awc5ngPQiKbsWsZleEoGUl_XzWpirThL/view?usp=sharing" class="text-indigo-600 font-semibold hover:underline">Live Demo</a>
+                            <a href="https://github.com/Saxena-1704/Final-Submission.git" class="text-indigo-600 font-semibold hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- === END OF PORTFOLIO ITEM 1 === -->
+
+                <!-- === PORTFOLIO ITEM 2 === -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/f0e7d6/ffffff?text=Project+2" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Raag Detector</h3>
+                        <p class="text-gray-600 mb-4">This is a foundational model for detecting Raags(Indian Classical Music). It is made using transfer learning on the pretrained model YAMNet.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-indigo-600 font-semibold hover:underline">Live Demo</a>
+                            <a href="https://github.com/Saxena-1704/Raag-Detector.git" class="text-indigo-600 font-semibold hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- === END OF PORTFOLIO ITEM 2 === -->
+                
+                <!-- === PORTFOLIO ITEM 3 === -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="images/AI Astrologer Image.jpeg" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">AI Astrologer Agent</h3>
+                        <p class="text-gray-600 mb-4">A brief description of the project, what technologies were used, and what purpose it serves.</p>
+                        <div class="flex gap-4">
+                            <a href="https://drive.google.com/file/d/1rVP79lGPGdw-eiqpBu2rxnk0xGBbzenV/view?usp=sharing" class="text-indigo-600 font-semibold hover:underline">Live Demo</a>
+                            <a href="https://github.com/Saxena-1704/AI-Astrologer-Agent.git" class="text-indigo-600 font-semibold hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- === END OF PORTFOLIO ITEM 3 === -->
+                 
+
+                <!-- Add more portfolio items here by copying the block above -->
+
+            </div>
+        </section>
+
+        <!-- =========== BLOG PAGE SECTION =========== -->
+        <!-- This section is hidden by default. -->
+        <section id="blog" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">My Blog</h2>
+                <p class="text-lg text-gray-600 mt-2">Thoughts, articles, and updates from my journey in tech.</p>
+            </div>
+            
+            <!-- Blog Posts Container -->
+            <div class="max-w-4xl mx-auto space-y-12">
+                
+                <!-- === BLOG POST 1 === -->
+                <!-- EDIT HERE: Copy and paste this whole 'article' block to add a new blog post. -->
+                <article class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://placehold.co/800x400/a3bfb8/ffffff?text=Blog+Post+1" alt="Blog Post 1" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <!-- Post Title -->
+                        <h3 class="text-2xl font-bold mb-2"><a href="#" class="hover:text-indigo-600 transition-colors">Training from Scratch vs Finetuning vs Transfer Learning</a></h3>
+                        <!-- Post Meta: Date -->
+                        <p class="text-gray-500 mb-4">Published on September 18, 2025</p>
+                        <!-- Post Excerpt -->
+                        <p class="text-gray-600 mb-6">This blog explores the difference between Training a neural network from scratch, finetuning a pretrained model and using transfer learning on a pretrained model</p>
+                        <!-- Read More Link -->
+                        <a href="blogs/blog1.html" class="text-indigo-600 font-semibold hover:underline">Read More &rarr;</a>
+                    </div>
+                </article>
+                <!-- === END OF BLOG POST 1 === -->
+
+                <!-- === BLOG POST 2 === -->
+       <!--         <article class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://placehold.co/800x400/f0e7d6/ffffff?text=Blog+Post+2" alt="Blog Post 2" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-2"><a href="#" class="hover:text-indigo-600 transition-colors">Second Blog Post Title</a></h3>
+                        <p class="text-gray-500 mb-4">Published on September 10, 2025</p>
+                        <p class="text-gray-600 mb-6">This is a short excerpt of the blog post. It gives the reader a quick idea of the content. You can write a few sentences here to summarize your article and entice the reader to click 'Read More'.</p>
+                        <a href="#" class="text-indigo-600 font-semibold hover:underline">Read More &rarr;</a>
+                    </div>
+                </article>      -->
+                <!-- === END OF BLOG POST 2 === -->
+                
+                <!-- Add more blog posts here by copying the block above -->
+            </div>
+        </section>
+
+        <!-- =========== CONTACT PAGE SECTION =========== -->
+        <!-- This section is hidden by default. -->
+        <section id="contact" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">Contact Me</h2>
+                <p class="text-lg text-gray-600 mt-2">I'd love to hear from you! Reach out through email or my social channels.</p>
+            </div>
+            <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+                <div class="flex flex-col gap-6">
+                    <!-- EDIT HERE: Your Email Address -->
+                    <div class="flex items-center gap-4">
+                        <svg class="w-8 h-8 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <a href="mailto:your.email@example.com" class="text-lg text-gray-700 hover:text-indigo-600">arannav174@gmail.com</a>
+                    </div>
+                    <!-- EDIT HERE: Your LinkedIn Profile URL -->
+                    <div class="flex items-center gap-4">
+                         <svg class="w-8 h-8 text-indigo-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                        <a href="https://www.linkedin.com/in/arannav-saxena-63718b221/" class="text-lg text-gray-700 hover:text-indigo-600">linkedin.com/in/yourprofile</a>
+                    </div>
+                    <!-- EDIT HERE: Your GitHub Profile URL -->
+                    <div class="flex items-center gap-4">
+                        <svg class="w-8 h-8 text-indigo-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                        <a href="https://github.com/Saxena-1704" class="text-lg text-gray-700 hover:text-indigo-600">github.com/Saxena-1704</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- =========== FOOTER =========== -->
+    <footer class="bg-white border-t mt-12">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
+            <!-- EDIT HERE: Your Name and the current year -->
+            <p>&copy; 2025 Arannav Saxena. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- =========== JAVASCRIPT LOGIC =========== -->
+    <script>
+        // Wait for the entire HTML document to be fully loaded and parsed.
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- VARIABLE DECLARATIONS ---
+
+            // Get all the links that are used to switch between pages/sections.
+            // 'document.querySelectorAll' returns a list of all elements that match the selector '.page-switcher'.
+            const pageSwitchers = document.querySelectorAll('.page-switcher');
+            
+            // Get all the main content sections (home, portfolio, contact).
+            const pageSections = document.querySelectorAll('.page-section');
+            
+            // Get all the navigation links in the header.
+            const navLinks = document.querySelectorAll('.nav-link');
+
+
+            // --- CORE FUNCTION TO SWITCH PAGES ---
+
+            // This function handles the logic of showing one section and hiding others.
+            function showPage(pageId) {
+                // Loop through each of the page sections (home, portfolio, contact).
+                pageSections.forEach(section => {
+                    // Check if the current section's ID matches the pageId we want to show.
+                    if (section.id === pageId) {
+                        // If it matches, remove the 'hidden' class to make it visible.
+                        section.classList.remove('hidden');
+                    } else {
+                        // If it does not match, add the 'hidden' class to hide it.
+                        section.classList.add('hidden');
+                    }
+                });
+
+                // This part updates the 'active' style on the navigation links.
+                navLinks.forEach(link => {
+                    // The 'href' attribute of a link looks like '#home'. We use 'substring(1)' to get just 'home'.
+                    if (link.getAttribute('href').substring(1) === pageId) {
+                        // If the link's href matches the page we are on, add the 'active' class.
+                        link.classList.add('active');
+                    } else {
+                        // Otherwise, remove the 'active' class.
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+
+            // --- EVENT LISTENERS ---
+
+            // We need to listen for clicks on our navigation links and buttons.
+            // Loop through each of the switcher links/buttons we found earlier.
+            pageSwitchers.forEach(switcher => {
+                // Add a 'click' event listener to each one.
+                switcher.addEventListener('click', function(event) {
+                    // 'event.preventDefault()' stops the browser's default behavior for a link,
+                    // which is to reload the page or jump to an anchor. We want to handle it with JS.
+                    event.preventDefault();
+
+                    // 'this.getAttribute('href')' gets the href value from the clicked link (e.g., '#portfolio').
+                    // 'substring(1)' removes the '#' to get the clean ID (e.g., 'portfolio').
+                    const targetPageId = this.getAttribute('href').substring(1);
+
+                    // Call our main function to show the correct page.
+                    showPage(targetPageId);
+
+                    // This smoothly scrolls the user to the top of the page content after switching.
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+
+
+            // --- INITIAL PAGE LOAD ---
+
+            // When the website first loads, we want to make sure the correct page is shown
+            // in case the URL has a hash (e.g., yoursite.com/#portfolio).
+            const initialPage = window.location.hash.substring(1) || 'home'; // Default to 'home' if no hash exists.
+            showPage(initialPage);
+
+        });
+    </script>
+</body>
+</html>
+
