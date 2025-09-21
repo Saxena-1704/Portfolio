@@ -252,85 +252,60 @@ I’m a B.Tech student in Computer Science with a strong passion for Machine Lea
 
     <!-- =========== JAVASCRIPT LOGIC =========== -->
     <script>
-        // Wait for the entire HTML document to be fully loaded and parsed.
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // --- VARIABLE DECLARATIONS ---
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- VARIABLE DECLARATIONS ---
+        const pageSwitchers = document.querySelectorAll('.page-switcher');
+        const pageSections = document.querySelectorAll('.page-section');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-            // Get all the links that are used to switch between pages/sections.
-            // 'document.querySelectorAll' returns a list of all elements that match the selector '.page-switcher'.
-            const pageSwitchers = document.querySelectorAll('.page-switcher');
-            
-            // Get all the main content sections (home, portfolio, contact).
-            const pageSections = document.querySelectorAll('.page-section');
-            
-            // Get all the navigation links in the header.
-            const navLinks = document.querySelectorAll('.nav-link');
+        // --- Mobile Menu Variables ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        // --- Event Listener for Hamburger Menu ---
+        // This only works if menuBtn is not null (i.e., the ID was found)
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-
-            // --- CORE FUNCTION TO SWITCH PAGES ---
-
-            // This function handles the logic of showing one section and hiding others.
-            function showPage(pageId) {
-                // Loop through each of the page sections (home, portfolio, contact).
-                pageSections.forEach(section => {
-                    // Check if the current section's ID matches the pageId we want to show.
-                    if (section.id === pageId) {
-                        // If it matches, remove the 'hidden' class to make it visible.
-                        section.classList.remove('hidden');
-                    } else {
-                        // If it does not match, add the 'hidden' class to hide it.
-                        section.classList.add('hidden');
-                    }
-                });
-
-                // This part updates the 'active' style on the navigation links.
-                navLinks.forEach(link => {
-                    // The 'href' attribute of a link looks like '#home'. We use 'substring(1)' to get just 'home'.
-                    if (link.getAttribute('href').substring(1) === pageId) {
-                        // If the link's href matches the page we are on, add the 'active' class.
-                        link.classList.add('active');
-                    } else {
-                        // Otherwise, remove the 'active' class.
-                        link.classList.remove('active');
-                    }
-                });
-            }
-
-
-            // --- EVENT LISTENERS ---
-
-            // We need to listen for clicks on our navigation links and buttons.
-            // Loop through each of the switcher links/buttons we found earlier.
-            pageSwitchers.forEach(switcher => {
-                // Add a 'click' event listener to each one.
-                switcher.addEventListener('click', function(event) {
-                    // 'event.preventDefault()' stops the browser's default behavior for a link,
-                    // which is to reload the page or jump to an anchor. We want to handle it with JS.
-                    event.preventDefault();
-
-                    // 'this.getAttribute('href')' gets the href value from the clicked link (e.g., '#portfolio').
-                    // 'substring(1)' removes the '#' to get the clean ID (e.g., 'portfolio').
-                    const targetPageId = this.getAttribute('href').substring(1);
-
-                    // Call our main function to show the correct page.
-                    showPage(targetPageId);
-
-                    // This smoothly scrolls the user to the top of the page content after switching.
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
+        // --- CORE FUNCTION TO SWITCH PAGES ---
+        function showPage(pageId) {
+            pageSections.forEach(section => {
+                if (section.id === pageId) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
             });
 
+            navLinks.forEach(link => {
+                if (link.getAttribute('href').substring(1) === pageId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
 
-            // --- INITIAL PAGE LOAD ---
+            // Hide the mobile menu after clicking a link
+            mobileMenu.classList.add('hidden');
+        }
 
-            // When the website first loads, we want to make sure the correct page is shown
-            // in case the URL has a hash (e.g., yoursite.com/#portfolio).
-            const initialPage = window.location.hash.substring(1) || 'home'; // Default to 'home' if no hash exists.
-            showPage(initialPage);
-
+        // --- EVENT LISTENERS ---
+        pageSwitchers.forEach(switcher => {
+            switcher.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetPageId = this.getAttribute('href').substring(1);
+                showPage(targetPageId);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
         });
-    </script>
+
+        // --- INITIAL PAGE LOAD ---
+        const initialPage = 'home';
+        showPage(initialPage);
+    });
+</script>
 </body>
 </html>
 
