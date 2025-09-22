@@ -73,20 +73,14 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- =========== RESPONSIVE HEADER WITH HAMBURGER MENU =========== -->
     <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Site Title -->
             <a href="../index.html" class="text-2xl font-bold text-indigo-600">Arannav Saxena</a>
-
-            <!-- Hamburger Menu Button (Visible on Mobile) -->
             <button id="menu-btn" class="md:hidden block text-gray-800 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-
-            <!-- Desktop Navigation Links (Visible on Desktop) -->
             <ul class="hidden md:flex md:space-x-8">
                 <li><a href="../index.html#home" class="text-gray-600 hover:text-indigo-600">Home</a></li>
                 <li><a href="../index.html#portfolio" class="text-gray-600 hover:text-indigo-600">Portfolio</a></li>
@@ -94,8 +88,6 @@
                 <li><a href="../index.html#contact" class="text-gray-600 hover:text-indigo-600">Contact</a></li>
             </ul>
         </nav>
-
-        <!-- Mobile Menu Dropdown (Hidden by Default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <a href="../index.html#home" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Home</a>
             <a href="../index.html#portfolio" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Portfolio</a>
@@ -104,7 +96,6 @@
         </div>
     </header>
 
-    <!-- =========== MAIN CONTENT =========== -->
     <main class="container mx-auto px-6 py-12">
         <article class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-lg">
             
@@ -121,7 +112,7 @@
                     It has almost been a year since I started my Artificial Intelligence & Machine Learning journey. I quickly learned that the biggest lessons come from trying to build something real. My experience with a challenging audio classification project, where I had a small dataset, forced me to look beyond the basics and understand the different strategies for training a model.
                 </p>
 
-                <h2>1. Training from Scratch: The Herculean Task </h2>
+                <h2>1. Training from Scratch: The Herculean Task</h2>
                 <p>
                     Training a model "from scratch" means you start with a blank slate. You define the model's architecture (its layers and connections), but all its internal parameters, or <strong>weights</strong>, are initialized with random values. The model knows nothing about the world or your data. Its entire "knowledge" must be learned exclusively from the dataset you provide.
                 </p>
@@ -132,7 +123,7 @@
                     <li><strong>Deep Expertise:</strong> You need a solid understanding of model architecture, optimization algorithms, and regularization techniques to guide the model's learning process without it failing.</li>
                 </ul>
                 
-                <h2>2. The Smarter Path: Standing on the Shoulders of Giants </h2>
+                <h2>2. The Smarter Path: Standing on the Shoulders of Giants</h2>
                 <p>
                     The failure of my initial approach led me to a crucial concept: why reinvent the wheel? Why teach a model what the texture of a leaf is, or the sound of a guitar string, when other models have already learned this? This is the core idea behind <strong>Transfer Learning</strong> and <strong>Fine-Tuning</strong>.
                 </p>
@@ -141,7 +132,7 @@
                     These techniques leverage a <strong>pre-trained model</strong>—a network that has already been trained on a massive, general dataset (like ImageNet for images or AudioSet for sounds). These models have already developed powerful "feature extractors" in their early layers that we can borrow for our own projects.
                 </p>
 
-                <h2>3. Transfer Learning: The Expert Consultant </h2>
+                <h2>3. Transfer Learning: The Expert Consultant</h2>
                 <p>
                     Think of Transfer Learning as hiring an expert consultant. Let's say you want to build an app to classify different types of flowers. Instead of teaching a model from scratch about colors, edges, and textures, you'd use a pre-trained image model. This model is like an expert biologist who already knows all of that. You just need to teach them to recognize the specific flowers in your dataset.
                 </p>
@@ -152,57 +143,55 @@
                     <li><strong>Replace the Final Layer:</strong> The pre-trained model's final layer was built to classify its original data (e.g., "cats," "dogs," "cars"). You chop this layer off and add a new, trainable classification layer that is tailored to your specific task (e.g., "roses," "daisies," "tulips").</li>
                 </ol>
                 
-                
-                <h2>4. Fine-Tuning: The Specialist's Touch </h2>
+                <h2>4. Fine-Tuning: The Specialist's Touch</h2>
                 <p>
                     Fine-Tuning is a more nuanced extension of Transfer Learning. It's like your expert biologist (the pre-trained model) not only learning your specific flower types but also slightly adjusting their general understanding of "petals" and "stems" based on the unique patterns they see in your dataset.
                 </p>
-                 <h3>The Technical Workflow:</h3>
+                <h3>The Technical Workflow:</h3>
                 <ol>
                     <li><strong>Start like Transfer Learning:</strong> Begin with a pre-trained model and a new classification head.</li>
                     <li><strong>Unfreeze Some Layers:</strong> Instead of keeping all the base layers frozen, you "unfreeze" some of the later ones.</li>
                     <li><strong>Train Slowly:</strong> You then train the entire trainable part of the network on your data, but with a **very low learning rate**. This is the most crucial step.</li>
                 </ol>
                 
-                
                 <h2>Comparison at a Glance: Which Path to Choose?</h2>
-                <div class="overflow-x-auto"></div>
-                <table class="min-w-[600px]">
-                    <thead>
-                        <tr>
-                            <th>Criteria</th>
-                            <th>Training from Scratch</th>
-                            <th>Transfer Learning</th>
-                            <th>Fine-Tuning</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Dataset Size</strong></td>
-                            <td>Very Large (1M+)</td>
-                            <td>Small to Medium (1k - 10k)</td>
-                            <td>Medium to Large (10k+)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Computational Cost</strong></td>
-                            <td>Very High</td>
-                            <td>Low</td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Best For</strong></td>
-                            <td>Novel domains with huge resources</td>
-                            <td>Small datasets, rapid prototyping</td>
-                            <td>Maximizing accuracy on larger datasets</td>
-                        </tr>
-                         <tr>
-                            <td><strong>Risk of Overfitting</strong></td>
-                            <td>Very High</td>
-                            <td>Low</td>
-                            <td>Moderate</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="overflow-x-auto">
+                    <table class="min-w-[600px] w-full">
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>Training from Scratch</th>
+                                <th>Transfer Learning</th>
+                                <th>Fine-Tuning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Dataset Size</strong></td>
+                                <td>Very Large (1M+)</td>
+                                <td>Small to Medium (1k - 10k)</td>
+                                <td>Medium to Large (10k+)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Computational Cost</strong></td>
+                                <td>Very High</td>
+                                <td>Low</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Best For</strong></td>
+                                <td>Novel domains with huge resources</td>
+                                <td>Small datasets, rapid prototyping</td>
+                                <td>Maximizing accuracy on larger datasets</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risk of Overfitting</strong></td>
+                                <td>Very High</td>
+                                <td>Low</td>
+                                <td>Moderate</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <h2>A New Game Plan for Any Project</h2>
@@ -215,23 +204,18 @@
         </article>
     </main>
     
-    <!-- =========== FOOTER =========== -->
     <footer class="bg-white border-t mt-12">
         <div class="container mx-auto px-6 py-4 text-center text-gray-500">
             <p>&copy; 2025 Arannav Saxena. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- =========== JAVASCRIPT FOR HAMBURGER MENU =========== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get the hamburger button and the mobile menu div
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             
-            // Add a click event listener to the hamburger button
             menuBtn.addEventListener('click', () => {
-                // Toggle the 'hidden' class on the mobile menu to show or hide it
                 mobileMenu.classList.toggle('hidden');
             });
         });
