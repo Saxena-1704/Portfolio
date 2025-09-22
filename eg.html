@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Arannav Saxena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .blog-content h2 {
+            font-size: 1.875rem; /* 30px */
+            font-weight: 700;
+            margin-top: 2.5rem; /* 40px */
+            margin-bottom: 1.25rem; /* 20px */
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            color: #1a202c;
+        }
+        .blog-content h3 {
+            font-size: 1.5rem; /* 24px */
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        .blog-content p, .blog-content li {
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.75;
+            color: #374151;
+            margin-bottom: 1.25rem;
+        }
+        .blog-content strong {
+            color: #111827;
+        }
+         .blog-content ul, .blog-content ol {
+            list-style-position: inside;
+            padding-left: 1rem;
+            margin-bottom: 1.25rem;
+        }
+        .blog-content table {
+            width: 100%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-collapse: collapse;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .blog-content th, .blog-content td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .blog-content th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        .blog-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            display: block;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- =========== RESPONSIVE HEADER WITH HAMBURGER MENU =========== -->
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Site Title -->
+            <a href="../index.html" class="text-2xl font-bold text-indigo-600">Arannav Saxena</a>
+
+            <!-- Hamburger Menu Button (Visible on Mobile) -->
+            <button id="menu-btn" class="md:hidden block text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation Links (Visible on Desktop) -->
+            <ul class="hidden md:flex md:space-x-8">
+                <li><a href="../index.html#home" class="text-gray-600 hover:text-indigo-600">Home</a></li>
+                <li><a href="../index.html#portfolio" class="text-gray-600 hover:text-indigo-600">Portfolio</a></li>
+                <li><a href="../index.html#blog" class="text-gray-600 hover:text-indigo-600">Blog</a></li>
+                <li><a href="../index.html#contact" class="text-gray-600 hover:text-indigo-600">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu Dropdown (Hidden by Default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="../index.html#home" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Home</a>
+            <a href="../index.html#portfolio" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Portfolio</a>
+            <a href="../index.html#blog" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Blog</a>
+            <a href="../index.html#contact" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Contact</a>
+        </div>
+    </header>
+
+    <!-- =========== MAIN CONTENT =========== -->
+    <main class="container mx-auto px-6 py-12">
+        <article class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-lg">
+            
+            <div class="mb-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">From Scratch vs. Fine-Tuning vs. Transfer Learning</h1>
+                <p class="mt-4 text-lg text-gray-500">A Practical Guide to Training Neural Networks</p>
+                <a href="../index.html#blog" class="mt-4 inline-block text-indigo-600 font-semibold hover:underline">&larr; Back to Blog List</a>
+            </div>
+
+            
+
+            <div class="blog-content">
+                <p class="text-xl italic text-gray-600 border-l-4 border-indigo-200 pl-4">
+                    It has almost been a year since I started my Artificial Intelligence & Machine Learning journey. I quickly learned that the biggest lessons come from trying to build something real. My experience with a challenging audio classification project, where I had a small dataset, forced me to look beyond the basics and understand the different strategies for training a model.
+                </p>
+
+                <h2>1. Training from Scratch: The Herculean Task 🏋️‍♀️</h2>
+                <p>
+                    Training a model "from scratch" means you start with a blank slate. You define the model's architecture (its layers and connections), but all its internal parameters, or <strong>weights</strong>, are initialized with random values. The model knows nothing about the world or your data. Its entire "knowledge" must be learned exclusively from the dataset you provide.
+                </p>
+                <h3>What it requires:</h3>
+                <ul>
+                    <li><strong>A Massive Dataset:</strong> To learn meaningful patterns from nothing, the model needs to see hundreds of thousands, if not millions, of diverse examples.</li>
+                    <li><strong>Huge Computational Power:</strong> Training on large datasets for many cycles (epochs) requires powerful GPUs or TPUs and can take days, weeks, or even months.</li>
+                    <li><strong>Deep Expertise:</strong> You need a solid understanding of model architecture, optimization algorithms, and regularization techniques to guide the model's learning process without it failing.</li>
+                </ul>
+                
+                <h2>2. The Smarter Path: Standing on the Shoulders of Giants 巨人</h2>
+                <p>
+                    The failure of my initial approach led me to a crucial concept: why reinvent the wheel? Why teach a model what the texture of a leaf is, or the sound of a guitar string, when other models have already learned this? This is the core idea behind <strong>Transfer Learning</strong> and <strong>Fine-Tuning</strong>.
+                </p>
+                
+                <p>
+                    These techniques leverage a <strong>pre-trained model</strong>—a network that has already been trained on a massive, general dataset (like ImageNet for images or AudioSet for sounds). These models have already developed powerful "feature extractors" in their early layers that we can borrow for our own projects.
+                </p>
+
+                <h2>3. Transfer Learning: The Expert Consultant 🧐</h2>
+                <p>
+                    Think of Transfer Learning as hiring an expert consultant. Let's say you want to build an app to classify different types of flowers. Instead of teaching a model from scratch about colors, edges, and textures, you'd use a pre-trained image model. This model is like an expert biologist who already knows all of that. You just need to teach them to recognize the specific flowers in your dataset.
+                </p>
+                <h3>The Technical Workflow:</h3>
+                <ol>
+                    <li><strong>Select a Pre-trained Model:</strong> Choose a model trained on data similar to yours (e.g., ResNet50 for images, YAMNet for audio).</li>
+                    <li><strong>Freeze the Base Layers:</strong> You "freeze" the early layers of the network where fundamental feature extraction happens. This means their weights will not be updated during training.</li>
+                    <li><strong>Replace the Final Layer:</strong> The pre-trained model's final layer was built to classify its original data (e.g., "cats," "dogs," "cars"). You chop this layer off and add a new, trainable classification layer that is tailored to your specific task (e.g., "roses," "daisies," "tulips").</li>
+                </ol>
+                
+                
+                <h2>4. Fine-Tuning: The Specialist's Touch ✨</h2>
+                <p>
+                    Fine-Tuning is a more nuanced extension of Transfer Learning. It's like your expert biologist (the pre-trained model) not only learning your specific flower types but also slightly adjusting their general understanding of "petals" and "stems" based on the unique patterns they see in your dataset.
+                </p>
+                 <h3>The Technical Workflow:</h3>
+                <ol>
+                    <li><strong>Start like Transfer Learning:</strong> Begin with a pre-trained model and a new classification head.</li>
+                    <li><strong>Unfreeze Some Layers:</strong> Instead of keeping all the base layers frozen, you "unfreeze" some of the later ones.</li>
+                    <li><strong>Train Slowly:</strong> You then train the entire trainable part of the network on your data, but with a **very low learning rate**. This is the most crucial step.</li>
+                </ol>
+                
+                
+                <h2>Comparison at a Glance: Which Path to Choose?</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Criteria</th>
+                            <th>Training from Scratch</th>
+                            <th>Transfer Learning</th>
+                            <th>Fine-Tuning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dataset Size</strong></td>
+                            <td>Very Large (1M+)</td>
+                            <td>Small to Medium (1k - 10k)</td>
+                            <td>Medium to Large (10k+)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Computational Cost</strong></td>
+                            <td>Very High</td>
+                            <td>Low</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best For</strong></td>
+                            <td>Novel domains with huge resources</td>
+                            <td>Small datasets, rapid prototyping</td>
+                            <td>Maximizing accuracy on larger datasets</td>
+                        </tr>
+                         <tr>
+                            <td><strong>Risk of Overfitting</strong></td>
+                            <td>Very High</td>
+                            <td>Low</td>
+                            <td>Moderate</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>A New Game Plan for Any Project</h2>
+                <ol>
+                    <li><strong>Never start from scratch (unless you have to).</strong> Always look for a pre-trained model in your domain first.</li>
+                    <li><strong>Start with Transfer Learning.</strong> Use your dataset to train only the final classification layer. This will give you a strong performance baseline very quickly.</li>
+                    <li><strong>Graduate to Fine-Tuning.</strong> If you have enough data and need better performance, unfreeze some of the later layers and fine-tune with a low learning rate.</li>
+                </ol>
+            </div>
+        </article>
+    </main>
+    
+    <!-- =========== FOOTER =========== -->
+    <footer class="bg-white border-t mt-12">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
+            <p>&copy; 2025 Arannav Saxena. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- =========== JAVASCRIPT FOR HAMBURGER MENU =========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the hamburger button and the mobile menu div
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Add a click event listener to the hamburger button
+            menuBtn.addEventListener('click', () => {
+                // Toggle the 'hidden' class on the mobile menu to show or hide it
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
