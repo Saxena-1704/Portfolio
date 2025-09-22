@@ -195,5 +195,60 @@
             <p>&copy; 2025 Arannav Saxena. All Rights Reserved.</p>
         </div>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- VARIABLE DECLARATIONS ---
+        const pageSwitchers = document.querySelectorAll('.page-switcher');
+        const pageSections = document.querySelectorAll('.page-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // --- Mobile Menu Variables ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        // --- Event Listener for Hamburger Menu ---
+        // This only works if menuBtn is not null (i.e., the ID was found)
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- CORE FUNCTION TO SWITCH PAGES ---
+        function showPage(pageId) {
+            pageSections.forEach(section => {
+                if (section.id === pageId) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+
+            navLinks.forEach(link => {
+                if (link.getAttribute('href').substring(1) === pageId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Hide the mobile menu after clicking a link
+            mobileMenu.classList.add('hidden');
+        }
+
+        // --- EVENT LISTENERS ---
+        pageSwitchers.forEach(switcher => {
+            switcher.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetPageId = this.getAttribute('href').substring(1);
+                showPage(targetPageId);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // --- INITIAL PAGE LOAD ---
+        const initialPage = 'home';
+        showPage(initialPage);
+    });
+</script>
 </body>
 </html>
