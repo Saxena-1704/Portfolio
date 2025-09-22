@@ -20,25 +20,35 @@
             margin-bottom: 1.25rem; /* 20px */
             border-bottom: 1px solid #e5e7eb;
             padding-bottom: 0.5rem;
+            color: #1a202c;
+        }
+        .blog-content h3 {
+            font-size: 1.5rem; /* 24px */
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
         }
         .blog-content p, .blog-content li {
             font-size: 1.125rem; /* 18px */
             line-height: 1.75;
-            color: #374151; /* gray-700 */
+            color: #374151;
             margin-bottom: 1.25rem;
         }
         .blog-content strong {
-            color: #111827; /* gray-900 */
+            color: #111827;
         }
-         .blog-content ul {
-            list-style-type: disc;
-            padding-left: 2rem;
+         .blog-content ul, .blog-content ol {
+            list-style-position: inside;
+            padding-left: 1rem;
+            margin-bottom: 1.25rem;
         }
         .blog-content table {
             width: 100%;
             margin-top: 2rem;
             margin-bottom: 2rem;
             border-collapse: collapse;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .blog-content th, .blog-content td {
             border: 1px solid #e5e7eb;
@@ -46,91 +56,116 @@
             text-align: left;
         }
         .blog-content th {
-            background-color: #f9fafb;
+            background-color: #f1f5f9;
             font-weight: 600;
+            color: #2d3748;
+        }
+        .blog-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            display: block;
         }
     </style>
 </head>
 <body class="text-gray-800">
 
-     <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="../index.html" class="text-2xl font-bold text-indigo-600">Arannav Saxena</a>
+    <!-- =========== RESPONSIVE HEADER WITH HAMBURGER MENU =========== -->
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Site Title -->
+            <a href="../index.html" class="text-2xl font-bold text-indigo-600">Arannav Saxena</a>
 
-        <button id="menu-btn" class="md:hidden block text-gray-800 focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </button>
+            <!-- Hamburger Menu Button (Visible on Mobile) -->
+            <button id="menu-btn" class="md:hidden block text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
 
-        <ul id="menu-links" class="hidden md:flex md:space-x-6">
-            <li><a href="../index.html#home" class="text-gray-600 hover:text-indigo-600">Home</a></li>
-            <li><a href="../index.html#portfolio" class="text-gray-600 hover:text-indigo-600">Portfolio</a></li>
-            <li><a href="../index.html#blog" class="text-gray-600 hover:text-indigo-600">Blog</a></li>
-            <li><a href="../index.html#contact" class="text-gray-600 hover:text-indigo-600">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
-        <a href="../index.html#home" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Home</a>
-        <a href="../index.html#portfolio" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Portfolio</a>
-        <a href="../index.html#blog" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
-        <a href="../index.html#contact" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Contact</a>
-    </div>
-</header>
+            <!-- Desktop Navigation Links (Visible on Desktop) -->
+            <ul class="hidden md:flex md:space-x-8">
+                <li><a href="../index.html#home" class="text-gray-600 hover:text-indigo-600">Home</a></li>
+                <li><a href="../index.html#portfolio" class="text-gray-600 hover:text-indigo-600">Portfolio</a></li>
+                <li><a href="../index.html#blog" class="text-gray-600 hover:text-indigo-600">Blog</a></li>
+                <li><a href="../index.html#contact" class="text-gray-600 hover:text-indigo-600">Contact</a></li>
+            </ul>
+        </nav>
 
+        <!-- Mobile Menu Dropdown (Hidden by Default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="../index.html#home" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Home</a>
+            <a href="../index.html#portfolio" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Portfolio</a>
+            <a href="../index.html#blog" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Blog</a>
+            <a href="../index.html#contact" class="block py-3 px-6 text-gray-700 hover:bg-gray-50">Contact</a>
+        </div>
+    </header>
+
+    <!-- =========== MAIN CONTENT =========== -->
     <main class="container mx-auto px-6 py-12">
         <article class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-lg">
             
             <div class="mb-8 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Training from Scratch vs. Fine-Tuning vs. Transfer Learning</h1>
-                <p class="mt-4 text-lg text-gray-500">Published on September 21, 2025</p>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">From Scratch vs. Fine-Tuning vs. Transfer Learning</h1>
+                <p class="mt-4 text-lg text-gray-500">A Practical Guide to Training Neural Networks</p>
                 <a href="../index.html#blog" class="mt-4 inline-block text-indigo-600 font-semibold hover:underline">&larr; Back to Blog List</a>
             </div>
 
-            <img src="https://placehold.co/1200x600/a3bfb8/ffffff?text=My+AI+Learning+Journey" alt="Blog hero image" class="w-full h-auto rounded-lg mb-8 shadow-md">
             
+
             <div class="blog-content">
                 <p class="text-xl italic text-gray-600 border-l-4 border-indigo-200 pl-4">
-                    It has almost been a year since I started my Artificial Intelligence & Machine Learning journey. After many projects and many failures, I realized that some of the biggest lessons aren't found in textbooks, but in trying to build something real. This is the story of my 'Raag Detector' project and what it taught me about training models.
+                    It has almost been a year since I started my Artificial Intelligence & Machine Learning journey. I quickly learned that the biggest lessons come from trying to build something real. My experience with a challenging audio classification project, where I had a small dataset, forced me to look beyond the basics and understand the different strategies for training a model.
                 </p>
 
-                <h2>Training from Scratch: The Herculean Task 🏋️‍♀️</h2>
+                <h2>1. Training from Scratch: The Herculean Task 🏋️‍♀️</h2>
                 <p>
-                    Training a model "from scratch" is exactly what it sounds like. You begin with a model architecture, but its "brain" is a blank slate. All the parameters, or <strong>weights</strong>, are initialized with random values. My initial attempt with the 'Raag Detector' failed precisely because I was trying this method without meeting any of the prerequisites. A small CNN with a tiny dataset of 300 recordings couldn't possibly learn the incredibly complex features of Indian classical music from random noise.
+                    Training a model "from scratch" means you start with a blank slate. You define the model's architecture (its layers and connections), but all its internal parameters, or <strong>weights</strong>, are initialized with random values. The model knows nothing about the world or your data. Its entire "knowledge" must be learned exclusively from the dataset you provide.
                 </p>
-                <p><strong>What it requires:</strong></p>
+                <h3>What it requires:</h3>
                 <ul>
-                    <li><strong>A massive dataset:</strong> We're talking hundreds of thousands, if not millions, of data points.</li>
-                    <li><strong>Huge computational power:</strong> Training can take days, weeks, or even months on powerful GPUs or TPUs.</li>
-                    <li><strong>Deep expertise:</strong> A solid understanding of model architecture, optimization, and regularization is crucial.</li>
+                    <li><strong>A Massive Dataset:</strong> To learn meaningful patterns from nothing, the model needs to see hundreds of thousands, if not millions, of diverse examples.</li>
+                    <li><strong>Huge Computational Power:</strong> Training on large datasets for many cycles (epochs) requires powerful GPUs or TPUs and can take days, weeks, or even months.</li>
+                    <li><strong>Deep Expertise:</strong> You need a solid understanding of model architecture, optimization algorithms, and regularization techniques to guide the model's learning process without it failing.</li>
                 </ul>
-
-                <h2>The Smarter Path: Standing on the Shoulders of Giants 巨人</h2>
+                
+                <h2>2. The Smarter Path: Standing on the Shoulders of Giants 巨人</h2>
                 <p>
-                    After my initial failure, I realized a crucial concept: why reinvent the wheel? This is the core idea behind <strong>Transfer Learning</strong> and <strong>Fine-Tuning</strong>. These techniques leverage a <strong>pre-trained model</strong> – a model that has already been trained on a massive, general dataset (like ImageNet for images or AudioSet for sounds). We can use this "learned knowledge" as a powerful head start.
+                    The failure of my initial approach led me to a crucial concept: why reinvent the wheel? Why teach a model what the texture of a leaf is, or the sound of a guitar string, when other models have already learned this? This is the core idea behind <strong>Transfer Learning</strong> and <strong>Fine-Tuning</strong>.
                 </p>
                 
-                <h2>Transfer Learning: The Expert Consultant 🧐</h2>
                 <p>
-                    Think of Transfer Learning as hiring an expert consultant. You'd hire an expert biologist who already knows about feathers and beaks; you just need to teach them to recognize the specific birds in your local area. In technical terms, Transfer Learning involves:
+                    These techniques leverage a <strong>pre-trained model</strong>—a network that has already been trained on a massive, general dataset (like ImageNet for images or AudioSet for sounds). These models have already developed powerful "feature extractors" in their early layers that we can borrow for our own projects.
                 </p>
-                <ul>
-                    <li>Taking a pre-trained model (e.g., VGGish or YAMNet).</li>
-                    <li><strong>Freezing</strong> the early layers to keep their expert knowledge intact.</li>
-                    <li><strong>Replacing</strong> the final classification layer with a new one for your specific task.</li>
-                </ul>
-                <p>
-                    We then train <em>only</em> this new final layer on our smaller dataset. Since most of the network is frozen, training is incredibly fast.
-                </p>
-                
-                <h2>Fine-Tuning: The Specialist's Touch ✨</h2>
-                <p>
-                    Fine-Tuning is a more nuanced extension of Transfer Learning. It's like your expert biologist not only learning your local birds but also slightly adjusting their general understanding of "feathers" based on the unique patterns they see.
-                </p>
-                <p>The process is similar, but instead of freezing all the early layers, you <strong>unfreeze some of the later ones</strong>. You then train the entire network (both the new layer and the unfrozen pre-trained layers) on your data, but with a <strong>very low learning rate</strong>. This is crucial—it ensures the powerful pre-trained weights are only nudged or "fine-tuned" slightly to become more relevant to your specific data, without forgetting their excellent general knowledge.</p>
 
-                <h2>Comparison at a Glance</h2>
+                <h2>3. Transfer Learning: The Expert Consultant 🧐</h2>
+                <p>
+                    Think of Transfer Learning as hiring an expert consultant. Let's say you want to build an app to classify different types of flowers. Instead of teaching a model from scratch about colors, edges, and textures, you'd use a pre-trained image model. This model is like an expert biologist who already knows all of that. You just need to teach them to recognize the specific flowers in your dataset.
+                </p>
+                <h3>The Technical Workflow:</h3>
+                <ol>
+                    <li><strong>Select a Pre-trained Model:</strong> Choose a model trained on data similar to yours (e.g., ResNet50 for images, YAMNet for audio).</li>
+                    <li><strong>Freeze the Base Layers:</strong> You "freeze" the early layers of the network where fundamental feature extraction happens. This means their weights will not be updated during training.</li>
+                    <li><strong>Replace the Final Layer:</strong> The pre-trained model's final layer was built to classify its original data (e.g., "cats," "dogs," "cars"). You chop this layer off and add a new, trainable classification layer that is tailored to your specific task (e.g., "roses," "daisies," "tulips").</li>
+                </ol>
+                
+                
+                <h2>4. Fine-Tuning: The Specialist's Touch ✨</h2>
+                <p>
+                    Fine-Tuning is a more nuanced extension of Transfer Learning. It's like your expert biologist (the pre-trained model) not only learning your specific flower types but also slightly adjusting their general understanding of "petals" and "stems" based on the unique patterns they see in your dataset.
+                </p>
+                 <h3>The Technical Workflow:</h3>
+                <ol>
+                    <li><strong>Start like Transfer Learning:</strong> Begin with a pre-trained model and a new classification head.</li>
+                    <li><strong>Unfreeze Some Layers:</strong> Instead of keeping all the base layers frozen, you "unfreeze" some of the later ones.</li>
+                    <li><strong>Train Slowly:</strong> You then train the entire trainable part of the network on your data, but with a **very low learning rate**. This is the most crucial step.</li>
+                </ol>
+                
+                
+                <h2>Comparison at a Glance: Which Path to Choose?</h2>
                 <table>
                     <thead>
                         <tr>
@@ -154,59 +189,50 @@
                             <td>Medium</td>
                         </tr>
                         <tr>
-                            <td><strong>Training Time</strong></td>
-                            <td>Days to Months</td>
-                            <td>Minutes to Hours</td>
-                            <td>Hours to Days</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Knowledge Base</strong></td>
-                            <td>Starts with None</td>
-                            <td>Uses pre-trained knowledge</td>
-                            <td>Adjusts pre-trained knowledge</td>
-                        </tr>
-                         <tr>
                             <td><strong>Best For</strong></td>
                             <td>Novel domains with huge resources</td>
                             <td>Small datasets, rapid prototyping</td>
-                            <td>Larger, specific datasets for higher accuracy</td>
+                            <td>Maximizing accuracy on larger datasets</td>
+                        </tr>
+                         <tr>
+                            <td><strong>Risk of Overfitting</strong></td>
+                            <td>Very High</td>
+                            <td>Low</td>
+                            <td>Moderate</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h2>Revisiting the 'Raag Detector': A New Game Plan</h2>
-                <p>
-                    Armed with this new understanding, my approach today would be completely different.
-                </p>
-                <ul>
-                    <li><strong>Step 1: Find a Pre-trained Audio Model.</strong> I would start with a model like PANNs, which has been trained on the massive AudioSet dataset. It already knows what music sounds like.</li>
-                    <li><strong>Step 2: Apply Transfer Learning.</strong> I would freeze its base layers, add a new classifier for my Raags, and train it on my 300 recordings. This would give me a much better baseline.</li>
-                    <li><strong>Step 3: Graduate to Fine-Tuning.</strong> If I could collect more data, say a few thousand recordings, I would then try fine-tuning. I would unfreeze the top few layers of the pre-trained model and retrain everything with a low learning rate to specialize its knowledge.</li>
-                </ul>
-                <p>
-                    My first attempt wasn't a failure; it was a necessary lesson. It taught me that in machine learning, the goal isn't always to build everything yourself. The smartest path is often to leverage the incredible work that has already been done and adapt it to your unique vision.
-                </p>
+                <h2>A New Game Plan for Any Project</h2>
+                <ol>
+                    <li><strong>Never start from scratch (unless you have to).</strong> Always look for a pre-trained model in your domain first.</li>
+                    <li><strong>Start with Transfer Learning.</strong> Use your dataset to train only the final classification layer. This will give you a strong performance baseline very quickly.</li>
+                    <li><strong>Graduate to Fine-Tuning.</strong> If you have enough data and need better performance, unfreeze some of the later layers and fine-tune with a low learning rate.</li>
+                </ol>
             </div>
         </article>
     </main>
     
+    <!-- =========== FOOTER =========== -->
     <footer class="bg-white border-t mt-12">
         <div class="container mx-auto px-6 py-4 text-center text-gray-500">
             <p>&copy; 2025 Arannav Saxena. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- =========== JAVASCRIPT FOR HAMBURGER MENU =========== -->
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the button and the mobile menu
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    // Add an event listener to the button
-    menuBtn.addEventListener('click', () => {
-        // Toggle the 'hidden' class on the menu to show/hide it
-        mobileMenu.classList.toggle('hidden');
-    });
-});
-</script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the hamburger button and the mobile menu div
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Add a click event listener to the hamburger button
+            menuBtn.addEventListener('click', () => {
+                // Toggle the 'hidden' class on the mobile menu to show or hide it
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
